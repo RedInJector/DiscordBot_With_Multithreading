@@ -7,7 +7,7 @@ import org.RedInJector.HttpServer.Handlers.test;
 import javax.net.ssl.KeyManagerFactory;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManagerFactory;
-import java.io.FileInputStream;
+import java.io.InputStream;
 import java.net.InetSocketAddress;
 import java.security.KeyStore;
 
@@ -15,8 +15,11 @@ public class Server {
     public static void StartHttpServer() {
         try {
             char[] password = "123456789".toCharArray();
+
+            InputStream in = Server.class.getResourceAsStream("/keystore.jks");
+
             KeyStore keyStore = KeyStore.getInstance("JKS");
-            keyStore.load(new FileInputStream("src/main/resources/keystore.jks"), password);
+            keyStore.load(in, password);
 
             // Set up the key manager factory
             KeyManagerFactory kmf = KeyManagerFactory.getInstance("SunX509");

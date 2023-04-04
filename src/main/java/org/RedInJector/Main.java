@@ -8,7 +8,7 @@ public class Main {
     public static void main(String[] args) {
         Config.loadConfig();
 
-        if(args[0].equals("null")) {
+        if(args == null) {
             System.out.println("Error. No bot Token argument Provided!!!!!!!");
             return;
         }

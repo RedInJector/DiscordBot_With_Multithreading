@@ -28,7 +28,7 @@
                     </descriptorRefs>
                     <archive>
                         <manifest>
-                            <mainClass>Main</mainClass>
+                            <mainClass>org.RedInJector.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

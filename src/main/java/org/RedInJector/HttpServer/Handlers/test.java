@@ -12,17 +12,16 @@ public class test implements HttpHandler {
 
     @Override
     public void handle(HttpExchange exchange) {
-        // Set the response headers
-        Headers headers = exchange.getResponseHeaders();
-        headers.set("Content-Type", "text/plain");
 
-        // Set the response status and length
-
-        
         Bot.jda.retrieveUserById("445248333733298178").queue(user ->{
             String response = "Hello, World!  " + user.getAsTag();
 
             try {
+                // Set the response headers
+                Headers headers = exchange.getResponseHeaders();
+                headers.set("Content-Type", "text/plain");
+
+                // Set the response status and length
                 exchange.sendResponseHeaders(200, response.length());
                 // Write the response body
                 OutputStream out = exchange.getResponseBody();

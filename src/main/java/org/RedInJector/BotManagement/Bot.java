@@ -4,7 +4,6 @@ import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.interactions.commands.build.Commands;
 import net.dv8tion.jda.api.requests.GatewayIntent;
-import org.RedInJector.ConfigManager.Config;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -13,12 +12,11 @@ import java.util.concurrent.TimeUnit;
 public class Bot {
     public static JDA jda;
     private static ExecutorService executor;
-    public static void StartBot() {
+    public static void StartBot(String TOKEN) {
         executor = Executors.newSingleThreadExecutor();
 
 
-        String Token = Config.getValue("Bot_Token");
-        jda = JDABuilder.createDefault(Token)
+        jda = JDABuilder.createDefault(TOKEN)
                 .enableIntents(GatewayIntent.MESSAGE_CONTENT)
                 .build();
 

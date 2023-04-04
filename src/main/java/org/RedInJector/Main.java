@@ -8,7 +8,12 @@ public class Main {
     public static void main(String[] args) {
         Config.loadConfig();
 
-        Bot.StartBot();
+        if(args[0].equals("null")) {
+            System.out.println("Error. No bot Token argument Provided!!!!!!!");
+            return;
+        }
+
+        Bot.StartBot(args[0]);
 
         Server.StartHttpServer();
 
